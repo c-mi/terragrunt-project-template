@@ -1,5 +1,5 @@
 module "vpc" {
-  source = "github.com/c-mi/terragrunt-project-template/modules/terraform-aws-vpc/?ref=feature/egress-network-firewall"
+  source = "github.com/c-mi/terragrunt-project-template.git//modules/terraform-aws-vpc?ref=feature-egress-firewall"
 
   cidr            = var.cidr
   azs             = var.azs
