@@ -33,7 +33,7 @@ EOF
 remote_state {
   backend = "s3"
   config = {
-    bucket         = "accounts-state-bucket"
+    bucket         = "c-mi-main-shared-tf-state"
     key            = "${path_relative_to_include()}/terraform.tfstate"
     region         = local.region
     dynamodb_table = "terraform-locks"

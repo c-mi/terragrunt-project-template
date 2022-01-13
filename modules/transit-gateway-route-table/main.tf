@@ -23,3 +23,11 @@ resource "aws_ec2_tag" "this" {
   key         = "Name"
   value       = replace(var.name, "rt", "attachment")
 }
+
+resource "aws_ec2_transit_gateway_route" "this" {
+  count = var.create_egress_route ? 1 : 0
+
+  destination_cidr_block         = "0.0.0.0/0"
+  transit_gateway_attachment_id  = var.egress_tgw_attachement
+  transit_gateway_route_table_id = aws_ec2_transit_gateway_route_table.this.id
+}

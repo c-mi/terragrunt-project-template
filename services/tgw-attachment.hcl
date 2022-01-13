@@ -2,6 +2,10 @@ dependency "transit_gateway" {
   config_path = "${dirname(find_in_parent_folders())}/main-shared-services/transit-gateway/tgw"
 }
 
+dependency "vpc" {
+  config_path = "../vpc"
+}
+
 terraform {
   source = "${dirname(find_in_parent_folders())}/../modules/transit-gateway-attachment"
 }
