@@ -8,5 +8,5 @@ terraform {
 
 inputs = {
   transit_gateway_id            = dependency.transit_gateway.outputs.ec2_transit_gateway_id
-  transit_gateway_attachment_id = dependency.attachment.outputs.attachement_id
+  transit_gateway_attachment_id = dependency.attachment.outputs.id
 }

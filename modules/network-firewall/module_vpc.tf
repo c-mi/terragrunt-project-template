@@ -1,6 +1,8 @@
 module "vpc" {
   source = "github.com/c-mi/terragrunt-project-template.git//modules/terraform-aws-vpc?ref=feature-egress-firewall"
 
+  name = var.name
+
   cidr            = var.cidr
   azs             = var.azs
   intra_subnets   = var.intra_subnets
@@ -16,4 +18,6 @@ module "vpc" {
   enable_dhcp_options              = true
   dhcp_options_domain_name_servers = ["AmazonProvidedDNS"]
 
+  multiple_public_route_tables = true
+  multiple_intra_route_tables  = true
 }

@@ -3,11 +3,7 @@ include "root" {
 }
 
 include "service" {
-  path = "${dirname(find_in_parent_folders())}/../services/tgw-attachment.hcl"
-}
-
-dependency "vpc" {
-  config_path = "../vpc"
+  path = "${dirname(find_in_parent_folders())}/../services/${basename(get_terragrunt_dir())}.hcl"
 }
 
 inputs = {

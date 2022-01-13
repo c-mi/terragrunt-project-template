@@ -14,13 +14,8 @@ dependency "shared_network" {
   config_path = "../main-shared-services-attachment"
 }
 
-dependency "ingress_network" {
-  config_path = "../main-shared-services-ingress-attachment"
-}
-
 inputs = {
   transit_gateway_propagated_attachments = [
     dependency.shared_network.outputs.attachement_id,
-    dependency.ingress_network.outputs.attachement_id,
   ]
 }
