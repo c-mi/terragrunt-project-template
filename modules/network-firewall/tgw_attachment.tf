@@ -1,5 +1,5 @@
 module "tgw_attachment" {
-  source = "github.com/c-mi/terragrunt-project-template.git//modules/transit-gateway-attachment?ref=feature-egress-firewall"
+  source = "github.com/c-mi/terragrunt-project-template.git//modules/transit-gateway-attachment"
 
   name = var.name
 

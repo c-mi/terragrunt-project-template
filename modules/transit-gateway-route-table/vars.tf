@@ -14,3 +14,13 @@ variable "transit_gateway_propagated_attachments" {
 variable "name" {
   type = string
 }
+
+variable "create_egress_route" {
+  type    = bool
+  default = true
+}
+
+variable "egress_tgw_attachement" {
+  type    = string
+  default = ""
+}

@@ -11,11 +11,11 @@ dependency "attachment" {
 }
 
 dependency "shared_network" {
-  config_path = "../main-shared-services-attachment"
+  config_path = "${dirname(find_in_parent_folders())}/main-shared-services/network/tgw-attachment"
 }
 
 inputs = {
   transit_gateway_propagated_attachments = [
-    dependency.shared_network.outputs.attachement_id,
+    dependency.shared_network_attachment.outputs.id,
   ]
 }
