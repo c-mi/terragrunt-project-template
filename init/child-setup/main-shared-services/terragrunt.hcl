@@ -13,5 +13,5 @@ inputs = {
   account_alias      = "c-mi-shared-services"
 
   create_state_bucket = true
-  state_bucket_name   = "accounts-state-bucket"
+  state_bucket_name   = "c-mi-main-shared-tf-state"
 }

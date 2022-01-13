@@ -1,5 +1,5 @@
 locals {
-  email = "example@email.com"
+  email = "cegielski.michal.work@gmail.com"
 }
 
 include "backend" {
@@ -39,6 +39,6 @@ inputs = {
     }
   }
 
-  state_bucket_name = "organization-state-bucket"
+  state_bucket_name = "c-mi-org-tf-state"
   state_bucket_path = path_relative_to_include()
 }
