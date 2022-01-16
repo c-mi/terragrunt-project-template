@@ -3,7 +3,7 @@ dependency "transit_gateway" {
 }
 
 dependency "firewall" {
-  config_path = "${dirname(find_in_parent_folders())}/main-shared-services/egress/firewall"
+  config_path = "${dirname(find_in_parent_folders())}/main-shared-services/firewall"
 }
 
 terraform {
