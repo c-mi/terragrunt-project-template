@@ -7,5 +7,8 @@ include "service" {
 }
 
 inputs = {
+  cidr            = "10.0.16.0/20"
+  private_subnets = ["10.0.16.0/24", "10.0.17.0/24"]
+
   attach_default_route_table = true
 }
