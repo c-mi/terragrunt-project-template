@@ -1,3 +1,8 @@
+variable "create_tgw_attachment" {
+  type    = bool
+  default = true
+}
+
 variable "vpc_id" {
   type = string
 }
