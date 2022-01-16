@@ -19,6 +19,6 @@ resource "aws_ec2_transit_gateway_vpc_attachment" "this" {
 resource "aws_ec2_transit_gateway_route_table_association" "this" {
   count = var.create_tgw_attachment && var.attach_default_route_table ? 1 : 0
 
-  transit_gateway_attachment_id  = aws_ec2_transit_gateway_vpc_attachment.this.id
+  transit_gateway_attachment_id  = aws_ec2_transit_gateway_vpc_attachment.this[0].id
   transit_gateway_route_table_id = var.default_route_table_id
 }
