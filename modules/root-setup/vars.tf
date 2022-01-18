@@ -16,10 +16,6 @@ variable "feature_set" {
   description = ""
 }
 
-variable "organizational_units" {
-  type = map(any)
-}
-
 variable "accounts" {
   type = map(any)
 }

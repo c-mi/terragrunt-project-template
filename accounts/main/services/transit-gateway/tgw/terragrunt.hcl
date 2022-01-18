@@ -15,6 +15,6 @@ inputs = {
   enable_default_route_table_propagation = true
 
   ram_allow_external_principals = true
-  ram_principals                = [for account in dependency.root.outputs.all_account_ids : account if account != dependency.root.outputs.organization_all_accounts["main-shared-services"].id]
+  ram_principals                = [for account in dependency.root.outputs.all_account_ids : account if account != dependency.root.outputs.organization_all_accounts["main/services"].id]
 
 }

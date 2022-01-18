@@ -1,10 +1,10 @@
 locals {
   region       = "eu-west-1"
-  account_name = regex("[a-z\\-\\_]+$", path_relative_to_include())
+  account_name = regex("[a-z\\-\\_]+/[a-z\\-\\_]+$", path_relative_to_include())
 }
 
 dependency "root" {
-  config_path = "../../root-setup"
+  config_path = "${dirname(find_in_parent_folders())}/root-setup"
 }
 
 generate "provider" {
@@ -22,7 +22,7 @@ provider "aws" {
 
   default_tags {
     tags = {
-      account = "${local.account_name}"
+      account = "${replace(local.account_name, "/", "-")}"
     }
   }
 }
@@ -30,5 +30,5 @@ EOF
 }
 
 terraform {
-  source = "../../../modules/account-setup"
+  source = "${dirname(find_in_parent_folders())}/../modules/account-setup"
 }

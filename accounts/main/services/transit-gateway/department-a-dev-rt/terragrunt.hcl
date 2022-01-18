@@ -7,15 +7,15 @@ include "service" {
 }
 
 dependency "attachment" {
-  config_path = "${dirname(find_in_parent_folders())}/department-a-prod/network/tgw-attachment"
+  config_path = "${dirname(find_in_parent_folders())}/department-a/dev/network"
 }
 
 dependency "shared_network" {
-  config_path = "${dirname(find_in_parent_folders())}/main-shared-services/network/tgw-attachment"
+  config_path = "${dirname(find_in_parent_folders())}/main/services/network"
 }
 
 inputs = {
   transit_gateway_propagated_attachments = [
-    dependency.shared_network_attachment.outputs.id,
+    dependency.shared_network.outputs.tgw_attachment_id,
   ]
 }

@@ -1,9 +1,9 @@
 dependency "transit_gateway" {
-  config_path = "${dirname(find_in_parent_folders())}/main-shared-services/transit-gateway/tgw"
+  config_path = "${dirname(find_in_parent_folders())}/main/services/transit-gateway/tgw"
 }
 
 dependency "firewall" {
-  config_path = "${dirname(find_in_parent_folders())}/main-shared-services/firewall"
+  config_path = "${dirname(find_in_parent_folders())}/main/services/firewall"
 }
 
 terraform {
