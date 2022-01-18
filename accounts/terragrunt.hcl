@@ -1,7 +1,7 @@
 locals {
-  region            = "eu-west-1"
+  base_region       = "eu-west-1"
   current_path_dirs = split("/", path_relative_to_include())
-  account_name      = element(local.current_path_dirs, 0)
+  account_name      = join("/", slice(local.current_path_dirs, 0, 2))
 }
 
 dependency "root" {
@@ -13,7 +13,7 @@ generate "provider" {
   if_exists = "overwrite_terragrunt"
   contents  = <<EOF
 provider "aws" {
-  region              = "${local.region}"
+  region              = "${local.base_region}"
   allowed_account_ids = ["${dependency.root.outputs.organization_all_accounts[local.account_name].id}"]
 
   assume_role {
@@ -35,9 +35,9 @@ remote_state {
   config = {
     bucket         = "c-mi-main-shared-tf-state"
     key            = "${path_relative_to_include()}/terraform.tfstate"
-    region         = local.region
+    region         = local.base_region
     dynamodb_table = "terraform-locks"
-    role_arn       = "arn:aws:iam::${dependency.root.outputs.organization_all_accounts["main-shared-services"].id}:role/deployment"
+    role_arn       = "arn:aws:iam::${dependency.root.outputs.organization_all_accounts["main/services"].id}:role/deployment"
   }
   generate = {
     path      = "backend.tf"
